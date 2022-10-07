@@ -29,13 +29,13 @@ export default function MyNavBar() {
       <Collapse navbar>
         <Nav className="me-auto" navbar>
           <NavItem>
-            <a href="/" className="nav-link">
+            <a href="/home" className="nav-link">
               Inicio
             </a>
           </NavItem>
           <NavItem>
-            <a href="/about" className="nav-link">
-              Nosotros
+            <a href="/productos" className="nav-link">
+              Productos
             </a>
           </NavItem>
           <Categories items={items} title={"Categorias"}></Categories>
