@@ -22,7 +22,7 @@ export default function MyNavBar() {
       <div className="d-flex align-items-center">
         <NavbarBrand href="/">
           <CartWidget />
-          Electronic Company
+          Ecommerce Company 
         </NavbarBrand>
       </div>
 

@@ -21,7 +21,7 @@ function App() {
             element={
               <HomeContainer
                 greeting={
-                  "Bienvenidos a ELECTRONICS - Tienda de aterfactos electronicos"
+                  "COMPAÑIA DE VENTA DE ARTICULOS"
                 }
               />
             }

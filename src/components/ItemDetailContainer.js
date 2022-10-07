@@ -10,7 +10,7 @@ export default function ItemDetailContainer() {
   const [product, setProduct] = useState([]);
   const productId = params.id;
   useEffect(() => {
-    fetch(`https://rickandmortyapi.com/api/character/${productId}`)
+    fetch(`https://fakestoreapi.com/products/${productId}`)
       .then((res) => res.json())
       .then((value) => {
         setProduct(value);
@@ -26,13 +26,13 @@ export default function ItemDetailContainer() {
         <Card.Img
           variant="top"
           src={product.image}
-          alt="Electronics Store"
+          alt="All Store"
           loading="lazy"
         />
         <Card.Body>
-          <Card.Title className="text-center">{product.name}</Card.Title>
-          <Card.Text className="text-center"> Stock {product.id + 5} </Card.Text>
-          <Card.Text className="text-center">Precio {product.id + '00'} Bs.</Card.Text>
+          <Card.Title className="text-center">{product.title}</Card.Title>
+          <Card.Text className="text-center"> Stock {product.title} </Card.Text>
+          <Card.Text className="text-center">Precio {product.price} Bs.</Card.Text>
           <div className="text-center" >
           <Link  to={`/productos/`}>
             
