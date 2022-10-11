@@ -9,13 +9,14 @@ export default function ItemDetailContainer() {
   const params = useParams();
   const [product, setProduct] = useState([]);
   const productId = params.id;
+  const url = `https://fakestoreapi.com/products/${productId}`;
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${productId}`)
+    fetch(url)
       .then((res) => res.json())
       .then((value) => {
-        setProduct(value);
+        setProduct({products: value});
       });
-  });
+  },[]);
 
   return (
     <>
