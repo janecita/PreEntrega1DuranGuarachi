@@ -85,27 +85,27 @@ Actualmente cuenta con los siguientes Componentes:
 Vista del proyecto en ejecución:
 
 Inicio
-![](https://codimd.s3.shivering-isles.com/demo/uploads/accc19b4-e816-43c5-8ac6-3d046830a08b.png)
+![home](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/home.png?raw=true)
 
 
 Productos
-![](https://codimd.s3.shivering-isles.com/demo/uploads/0494f5c3-8e96-41c1-b639-2e4f4b45bb34.png)
+![productos](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/productos.png?raw=true)
 
 
 Categorias:
-![](https://codimd.s3.shivering-isles.com/demo/uploads/36326c51-add6-42f3-a5af-3c94cc5b10d2.png)
+![categorias](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/categorias.png?raw=true)
 
 
 Detalle de Item:
-![](https://codimd.s3.shivering-isles.com/demo/uploads/f84c4c94-d551-446f-ab80-594586329623.png)
+![item](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/item.png?raw=true)
 
 
 Carrito Compra:
-![](https://codimd.s3.shivering-isles.com/demo/uploads/87d0233d-8123-409a-8344-75bf7299bc64.png)
+![carrito](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/carrito.png?raw=true)
 
 
 Checkout de la Compra:
-![](https://codimd.s3.shivering-isles.com/demo/uploads/e5495e77-eed1-4210-8091-3e77514ef4b9.png)
+![checkout](https://raw.githubusercontent.com/janecita/PreEntrega1DuranGuarachi/main/public/imgProyecto/checkout.png?raw=true)
 
 
 ## Licencia
