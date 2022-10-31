@@ -26,7 +26,7 @@ export default function Item({ item }) {
             Precio: {item.price} Bs.
           </Card.Text>
           <Link to={`/productos/${item.id}`}>
-            <button className="btn btn-success btn-sm">+ Info</button>
+            <button className="btn btn-dark">+ Info</button>
           </Link>
           <Card.Text className="text-center m-2">
             Categoria: {item.category}

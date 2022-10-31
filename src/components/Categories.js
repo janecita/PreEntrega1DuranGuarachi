@@ -1,4 +1,5 @@
 import React from "react";
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import {
   DropdownItem,
   UncontrolledDropdown,
@@ -14,7 +15,11 @@ export default function Categories({ items, title }) {
       </DropdownToggle>
       <DropdownMenu end>
         {items.map((item) => {
-          return <DropdownItem>{item.name}</DropdownItem>;
+          return (
+            <NavDropdown.Item href={`/productos/categoria/${item.name}`} >
+                          {item.name}
+            </NavDropdown.Item>
+          );
         })}
       </DropdownMenu>
     </UncontrolledDropdown>
