@@ -5,13 +5,12 @@ import { addSingleDoc } from "../service/getFirestore";
 import Checkout from "./Checkout";
 export default function Cart() {
   const { cartList, setCartList, totalCart } = useCartContext();
-  
-  
+
   const clearItem = () => {
     setCartList([]);
   };
-  const handleSeguirComprando = ()=>{
-    addSingleDoc(useCartContext.value,"cart")
+  const handleSeguirComprando = () => {
+    addSingleDoc(JSON.stringify(useCartContext.value), "compra");
   };
   return (
     <div align="center">
@@ -39,7 +38,9 @@ export default function Cart() {
                 />
               </td>
               <td className="align-middle">{product.quantity}</td>
-              <td className="align-middle" style={{ width: "300px" }} >{product.description}</td>
+              <td className="align-middle" style={{ width: "300px" }}>
+                {product.description}
+              </td>
               <td className="align-middle">
                 {Intl.NumberFormat("es-AR", {
                   currency: "ARS",
@@ -73,13 +74,11 @@ export default function Cart() {
           </tr>
         </tbody>
       </Table>
-     
-        {/* <Button variant="dark" onClick={() => onCheckout()} >
-          Checkout
-        </Button> */}
-          <Checkout orderId={"2omDHLBYn3mb3eGfO3pQ"}/>
-      <Link to={`/productos/`}>      
-        <Button variant="dark"  onClick={handleSeguirComprando}>Seguir Comprando</Button>
+      <Checkout orderId={"2omDHLBYn3mb3eGfO3pQ"} ordenProcess={false} />
+      <Link to={`/productos/`}>
+        <Button variant="dark" onClick={handleSeguirComprando}>
+          Seguir Comprando
+        </Button>
       </Link>
     </div>
   );

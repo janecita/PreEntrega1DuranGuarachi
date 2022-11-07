@@ -14,14 +14,13 @@ import { useCartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 export default function MyNavBar() {
-  const { itemsCart } = useCartContext();
+  const { itemsCart } = useCartContext();  
   const items = [
     { name: "electronics" },
     { name: "jewelery" },
     { name: "men's clothing" },
     { name: "women's clothing" },
   ];
-
   return (
     <Navbar color="primary" dark expand="md">
       <div className="d-flex align-items-center">
@@ -52,7 +51,7 @@ export default function MyNavBar() {
         <DropdownToggle color="primary">
           <CartWidget />
           <Link to="/cart">
-            <Button>{itemsCart() !== 0 && itemsCart()}</Button>
+            <Button>{itemsCart(1)}</Button>
           </Link>
         </DropdownToggle>
       </Collapse>

@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react";
 import { useState, useEffect } from "react";
-
 const CartContext = createContext([]);
-
 export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
-  const [cartList, setCartList] = useState([]);
+const [cartList, setCartList] = useState([]);
+ 
+  
   useEffect(() => {
     //llamar al firebase
   }, [cartList]);
@@ -18,8 +18,10 @@ const CartContextProvider = ({ children }) => {
 
   // 	Función para sumar la cantidades de items que tiene el carrito
   const itemsCart = () => {
-    return cartList.reduce((prev, next) => prev + next.quantity, 0);
+    return  cartList.reduce((prev, item) => prev + item.quantity, 0);
   };
+
+
   // Funcion para poner a cero el carrito
   const clearCart = () => {
     setCartList([]);
@@ -47,7 +49,7 @@ const CartContextProvider = ({ children }) => {
         itemsCart,
         clearCart,
         totalCart,
-        clearItem,
+        clearItem
       }}
     >
       {children}

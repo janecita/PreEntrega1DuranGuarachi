@@ -1,21 +1,46 @@
 import React, { useState } from "react";
-import { Button, Form, Col, Row } from "react-bootstrap";
+import { Button, Form, Col, Row, Spinner } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { useCartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
-import CheckoutMsj from "./CheckoutMsj";
-export default function Checkout({ orderId }) {
-  const { cartList, setCartList } = useCartContext();
+import { addSingleDoc } from "../service/getFirestore";
+import { Fade } from "react-awesome-reveal";
+
+export default function Checkout({ orderId, ordenProcess }) {
+  const { cartList, setCartList, totalCart } = useCartContext();
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [orderProcess, setOrderProcess] = useState(false);
   const handleShow = () => setShow(true);
+
   const onCheckout = () => {
-    clearItem();
+    setOrderProcess(true);
+    var today = new Date();
+    var now = today.toLocaleString();
+    const orden = {
+      buyer: {
+        name: "Test",
+        phone: 70179670,
+        email: "jane@test",
+        date: now,
+      },
+      items: [
+        {
+          cartList,
+        },
+      ],
+      total: totalCart(),
+    };
+
+    addSingleDoc(orden, "cart");
+  };
+  const handleClose = () => {
+    orderProcess ? clearItem() : setShow(false);
     setShow(false);
   };
   const clearItem = () => {
     setCartList([]);
   };
+
   return (
     <>
       <Button variant="dark" onClick={handleShow}>
@@ -63,14 +88,35 @@ export default function Checkout({ orderId }) {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Link to={`/productos/`}>
-            <Button variant="dark" onClick={onCheckout}>
-              Confirmar Compra
+          <Link to={`/cart/`}>
+            <Button variant="secondary" onClick={handleClose}>
+              Cerrar
             </Button>
           </Link>
+          <Button variant="dark" onClick={onCheckout}>
+            Confirmar Compra
+          </Button>
+
+          {!orderProcess ? (
+            <Modal.Body className="text-center text-success">
+              <Spinner
+                as="span"
+                animation="border"
+                role="status"
+                aria-hidden="true"
+                size="lg"
+              />
+              Procesando ...
+            </Modal.Body>
+          ) : (
+            <>
+              <Fade left opposite cascade>
+                <Modal.Body className="bg-danger text-center text-white fw-normal">
+                  {`La Orden se generó correctamente, muchas GRACIAS por su Compra!!! Para seguimiento de la misma tome nota del siguiente Número: ${orderId}`}
+                </Modal.Body>
+              </Fade>
+            </>
+          )}
         </Modal.Footer>
       </Modal>
     </>

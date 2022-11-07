@@ -37,6 +37,7 @@ function App() {
               path="/productos/categoria/:categoria"
               element={<ItemListContainer></ItemListContainer>}
             />
+
             <Route exact path="/cart" element={<Cart></Cart>} />
             <Route exact path="/checkout" element={<Checkout></Checkout>} />
             <Route path="*" element={<div> NOT FOUND</div>} />

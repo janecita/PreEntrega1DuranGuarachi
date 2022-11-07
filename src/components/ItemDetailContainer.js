@@ -11,11 +11,7 @@ import ItemCount from './ItemCount';
 export default function ItemDetailContainer() {
   const params = useParams();
   const [product, setProduct] = useState({});
-	
-  //const { addItem } = useCartContext()
-  const { cartList,setCartList}= useCartContext()
-	const [purchaseQ, setPurchaseQ] = useState(false)
-  
+  const { cartList, setCartList}= useCartContext()
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)
       .then((res) => res.json())
@@ -24,11 +20,12 @@ export default function ItemDetailContainer() {
       });
   }, []);
   const onAdd = (count) => {
+
+//------
     product.quantity = count;
     let newCartList= cartList
     newCartList.push(product)
     setCartList(newCartList)
-		setPurchaseQ(true)
 	}
   return (
     <div align="center">
@@ -59,10 +56,7 @@ export default function ItemDetailContainer() {
           </Card.Text>
 
           <div className="text-center">
-           
-                  
-                  <ItemCount stock={product.rating ? product.rating.count : 0} initial={1} onAdd={onAdd} />
-             
+                  <ItemCount stock={product.rating ? product.rating.count : 0 } initial={1} onAdd={onAdd} />
           </div>
         
         
